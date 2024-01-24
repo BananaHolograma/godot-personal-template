@@ -11,8 +11,18 @@ config_version=5
 [application]
 
 config/name="godot-personal-template"
+run/main_scene="res://boot/boot_screen.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
+boot_splash/image="res://assets/boot/traditional-dark.png"
 config/icon="res://icon.svg"
+boot_splash/minimum_display_time=2000
+
+[autoload]
+
+AudioManager="*res://autoload/audio_manager.gd"
+DataStructures="*res://autoload/data_structures.gd"
+Utilities="*res://autoload/utilities.gd"
+VectorWizard="*res://autoload/vector_wizard.gd"
 
 [display]
 
