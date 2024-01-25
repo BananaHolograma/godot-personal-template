@@ -30,14 +30,15 @@ static func load_savegame(filename: String) -> Resource:
 
 
 static func get_save_path(filename: String) -> String:
-	return "%s/%s.%s" % [default_path, filename, SaveGame.get_save_extension()]
+	return "%s/%s.%s" % [default_path, filename.get_basename(), SaveGame.get_save_extension()]
 
 
 static func get_save_extension() -> String:
 	return "tres" if OS.is_debug_build() else "res"
 
 
-static func read_user_saved_games():
+static func read_user_saved_games() -> Dictionary:
+	var saved_games := {}
 	var dir = DirAccess.open(SaveGame.default_path)
 
 	if dir:
@@ -47,10 +48,11 @@ static func read_user_saved_games():
 			if not dir.current_is_dir() and file_name.get_extension() in [SaveGame.get_save_extension()]:
 				var saved_game = SaveGame.load_savegame(file_name.get_basename())
 				
-				## TODO -
 				if saved_game:
-					pass
+					saved_games[file_name] = saved_game
 		
 			file_name = dir.get_next()
 					
 		dir.list_dir_end()
+		
+	return saved_games
