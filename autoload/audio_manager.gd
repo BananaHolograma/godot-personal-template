@@ -12,11 +12,11 @@ func change_volume(bus, value: float) -> void:
 	AudioServer.set_bus_volume_db(bus, linear_to_db(value))
 
 ## Get the actual linear value from the selected bus by name
-func get_actual_volume_db_from_bus_name(name: String) -> float:
-	var bus_index: int = AudioServer.get_bus_index(name)
+func get_actual_volume_db_from_bus_name(bus_name: String) -> float:
+	var bus_index: int = AudioServer.get_bus_index(bus_name)
 	
 	if bus_index == -1:
-		push_error("AudioManager: Cannot retrieve volume for bus name {name}, it does not exists".format({"name": name}))
+		push_error("AudioManager: Cannot retrieve volume for bus name {name}, it does not exists".format({"name": bus_name}))
 		return 0.0
 		
 	return get_actual_volume_db_from_bus_index(bus_index)
