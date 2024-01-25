@@ -2,13 +2,13 @@ class_name SaveGame extends Resource
 
 static var default_path := OS.get_user_data_dir()
 
-## The version of the game that was saved, important when it comes to load and update the game if it's needed
+@export var filename: String
 @export var version_control := "1.0.0"
 @export var last_datetime := ""
 
-## This is the place where all the resources and variables can be added to be saved & loaded
-
-func write_savegame(filename: String) -> void:
+	
+func write_savegame(_filename: String) -> void:
+	filename = _filename.get_basename()
 	update_last_datetime()
 	ResourceSaver.save(self, SaveGame.get_save_path(filename))
 
@@ -20,12 +20,12 @@ func update_last_datetime():
 	
 	
 static func save_exists(filename: String) -> bool:
-	return ResourceLoader.exists(SaveGame.get_save_path(filename))
+	return ResourceLoader.exists(get_save_path(filename))
 	
 	
-static func load_savegame(filename: String) -> Resource:
+static func load_savegame(filename: String) -> SaveGame:
 	if SaveGame.save_exists(filename):
-		return ResourceLoader.load(SaveGame.get_save_path(filename), "", ResourceLoader.CACHE_MODE_IGNORE)
+		return ResourceLoader.load(get_save_path(filename), "", ResourceLoader.CACHE_MODE_IGNORE) as SaveGame
 	return null
 
 
@@ -44,12 +44,13 @@ static func read_user_saved_games() -> Dictionary:
 	if dir:
 		dir.list_dir_begin()
 		var file_name = dir.get_next()
+		
 		while file_name != "":
 			if not dir.current_is_dir() and file_name.get_extension() in [SaveGame.get_save_extension()]:
 				var saved_game = SaveGame.load_savegame(file_name.get_basename())
 				
-				if saved_game:
-					saved_games[file_name] = saved_game
+				if saved_game: 
+					saved_games[saved_game.filename] = saved_game
 		
 			file_name = dir.get_next()
 					
