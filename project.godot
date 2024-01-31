@@ -39,10 +39,6 @@ window/stretch/mode="canvas_items"
 
 project/assembly_name="godot-personal-template"
 
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/finite-state-machine/plugin.cfg")
-
 [input]
 
 move_left={
@@ -83,9 +79,10 @@ pause={
 [layer_names]
 
 2d_physics/layer_1="World"
-2d_physics/layer_2="Interactable"
+2d_physics/layer_2="Interactables"
 2d_physics/layer_3="Player"
-2d_physics/layer_4="Enemy"
+2d_physics/layer_4="Enemies"
+2d_physics/layer_5="Hitboxes"
 
 [rendering]
 
