@@ -18,4 +18,5 @@ func _ready():
 
 
 func on_animation_finished(name: String):
-	if name == "fade_in": get_tree().change_scene_to_packed(next_scene)
+	if next_scene is PackedScene and name == "fade_in":
+		get_tree().change_scene_to_packed(next_scene)
