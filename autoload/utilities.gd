@@ -29,3 +29,11 @@ func is_valid_url(url: String) -> bool:
 	regex.compile(url_pattern)
 	
 	return regex.search(url) != null
+
+
+func open_external_link(url: String):
+	if is_valid_url(url) and OS.has_method("shell_open"):
+		if OS.get_name() == "Web":
+			url = url.uri_encode()
+			
+		OS.shell_open(url)

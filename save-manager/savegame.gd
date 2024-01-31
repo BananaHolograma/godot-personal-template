@@ -23,24 +23,24 @@ func update_last_datetime():
 
 func delete():
 	if SaveGame.save_exists(filename):
-		var error = DirAccess.remove_absolute(get_save_path(filename))
+		var error = DirAccess.remove_absolute(SaveGame.get_save_path(filename))
 		
 		if error == OK:
 			GameEvents.deleted_saved_game.emit(filename)
 
 
-static func save_exists(filename: String) -> bool:
-	return ResourceLoader.exists(get_save_path(filename))
+static func save_exists(_filename: String) -> bool:
+	return ResourceLoader.exists(get_save_path(_filename))
 	
 	
-static func load_savegame(filename: String) -> SaveGame:
-	if SaveGame.save_exists(filename):
-		return ResourceLoader.load(get_save_path(filename), "", ResourceLoader.CACHE_MODE_IGNORE) as SaveGame
+static func load_savegame(_filename: String) -> SaveGame:
+	if SaveGame.save_exists(_filename):
+		return ResourceLoader.load(get_save_path(_filename), "", ResourceLoader.CACHE_MODE_IGNORE) as SaveGame
 	return null
 
 
-static func get_save_path(filename: String) -> String:
-	return "%s/%s.%s" % [default_path, filename.get_basename(), SaveGame.get_save_extension()]
+static func get_save_path(_filename: String) -> String:
+	return "%s/%s.%s" % [default_path, _filename.get_basename(), SaveGame.get_save_extension()]
 
 
 static func get_save_extension() -> String:

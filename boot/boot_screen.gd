@@ -6,7 +6,7 @@ extends Control
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 
-func _input(event):
+func _input(_event):
 	if Input.is_action_just_pressed("ui_accept"):
 		animation_player.stop()
 		get_tree().change_scene_to_packed(next_scene)
