@@ -3,8 +3,10 @@ class_name SaveGame extends Resource
 static var default_path := OS.get_user_data_dir()
 
 @export var filename: String
-@export var version_control := "1.0.0"
+@export var version_control: String = ProjectSettings.get_setting("application/config/version")
+@export var engine_version: String = "Godot %s" % Engine.get_version_info().string
 @export var last_datetime := ""
+@export var game_settings: GameSettings
 
 	
 func write_savegame(_filename: String) -> void:

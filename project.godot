@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="godot-personal-template"
+config/version="1.0.0"
 config/tags=PackedStringArray("new_projects", "template")
 run/main_scene="res://boot/boot_screen.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
@@ -75,6 +76,10 @@ pause={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":80,"key_label":0,"unicode":112,"echo":false,"script":null)
 ]
 }
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://localization/Localization.de.translation", "res://localization/Localization.en.translation", "res://localization/Localization.es.translation", "res://localization/Localization.fr.translation", "res://localization/Localization.it.translation", "res://localization/Localization.lv.translation", "res://localization/Localization.pt_BR.translation", "res://localization/Localization.ru.translation", "res://localization/Localization.sv_SE.translation", "res://localization/Localization.tr.translation")
 
 [layer_names]
 
