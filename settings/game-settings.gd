@@ -15,4 +15,5 @@ class_name GameSettings extends Resource
 @export var vsync := DisplayServer.VSYNC_DISABLED
 @export var antialiasing :=  Viewport.MSAA_DISABLED
 
+## https://docs.godotengine.org/en/stable/tutorials/i18n/locales.html
 @export var language: String = "en"
