@@ -18,7 +18,15 @@ func update_last_datetime():
 	var datetime = Time.get_datetime_dict_from_system()
 	last_datetime = "%s/%s/%s %s:%s " % [str(datetime.day).pad_zeros(2), str(datetime.month).pad_zeros(2), datetime.year, str(datetime.hour).pad_zeros(2), str(datetime.minute).pad_zeros(2)]
 	
-	
+
+func delete():
+	if SaveGame.save_exists(filename):
+		var error = DirAccess.remove_absolute(get_save_path(filename))
+		
+		if error == OK:
+			GameEvents.deleted_saved_game.emit(filename)
+
+
 static func save_exists(filename: String) -> bool:
 	return ResourceLoader.exists(get_save_path(filename))
 	

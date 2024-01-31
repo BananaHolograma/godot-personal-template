@@ -25,6 +25,7 @@ DataStructures="*res://autoload/data_structures.gd"
 Utilities="*res://autoload/utilities.gd"
 VectorWizard="*res://autoload/vector_wizard.gd"
 SaveManager="*res://autoload/save_manager.gd"
+GameEvents="*res://autoload/game_events.gd"
 
 [display]
 
