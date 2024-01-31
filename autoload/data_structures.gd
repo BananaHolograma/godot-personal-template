@@ -33,3 +33,20 @@ func flatten(array: Array, result = []):
 			result.append(array[i])
 
 	return result
+
+
+func pick_random_values(array: Array, items_to_pick :int = 1, duplicates: bool = true) -> Array:
+	var result := []
+	var target = flatten(array.duplicate())
+	target.shuffle()
+	
+	items_to_pick = min(target.size(), items_to_pick)
+	
+	for i in range(items_to_pick):
+		var item = target.pick_random()
+		result.append(item)
+
+		if not duplicates:
+			target.erase(item)
+		
+	return result
