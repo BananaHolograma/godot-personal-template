@@ -14,7 +14,7 @@ func _input(_event):
 	
 func _ready():
 	animation_player.play("fade_in")
-	animation_player.animation_finished.connect(on_animation_finished)	
+	animation_player.animation_finished.connect(on_animation_finished)
 
 
 func on_animation_finished(animation_name: String):

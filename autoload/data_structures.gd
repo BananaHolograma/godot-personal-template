@@ -50,3 +50,23 @@ func pick_random_values(array: Array, items_to_pick :int = 1, duplicates: bool =
 			target.erase(item)
 		
 	return result
+
+## Reorder the middle on array ignoring the first and last element
+## Example sorting by descendant order: [1,2,3,4,5,6] -> [1,5,4,3,2,6]
+func reorders_the_middle_of_an_array(array: Array, sort_callback: Callable) -> Array:
+	var target = array.duplicate()
+	
+	if array.size() > 3:
+		var first = target.front()
+		var last = target.back()
+		var sliced = target.slice(1, -1)
+		
+		sliced.sort_custom(sort_callback)
+		
+		## We set the new turn queue so we always have a fresh state of the battle flow
+		target = [first]
+		target.append_array(sliced)
+		target.append(last)
+	
+	return target
+	
