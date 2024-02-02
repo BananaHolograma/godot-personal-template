@@ -35,7 +35,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("BrandImage/SimpleChromatic:material:shader_parameter/r_displacement")
+tracks/1/path = NodePath("SimpleChromatic:material:shader_parameter/r_displacement")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -47,7 +47,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("BrandImage/SimpleChromatic:material:shader_parameter/g_displacement")
+tracks/2/path = NodePath("SimpleChromatic:material:shader_parameter/g_displacement")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -59,7 +59,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("BrandImage/SimpleChromatic:material:shader_parameter/b_displacement")
+tracks/3/path = NodePath("SimpleChromatic:material:shader_parameter/b_displacement")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -71,7 +71,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("BrandImage/TextureRect:material:shader_parameter/amount")
+tracks/4/path = NodePath("HBoxContainer/TextureRect:material:shader_parameter/amount")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -99,7 +99,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("BrandImage/SimpleChromatic:material:shader_parameter/r_displacement")
+tracks/1/path = NodePath("SimpleChromatic:material:shader_parameter/r_displacement")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -111,7 +111,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("BrandImage/SimpleChromatic:material:shader_parameter/g_displacement")
+tracks/2/path = NodePath("SimpleChromatic:material:shader_parameter/g_displacement")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -123,7 +123,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("BrandImage/SimpleChromatic:material:shader_parameter/b_displacement")
+tracks/3/path = NodePath("SimpleChromatic:material:shader_parameter/b_displacement")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -135,7 +135,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("BrandImage/TextureRect:material:shader_parameter/amount")
+tracks/4/path = NodePath("HBoxContainer/TextureRect:material:shader_parameter/amount")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -183,37 +183,34 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.00392157, 0.00392157, 0.00392157, 1)
 
-[node name="BrandImage" type="Control" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 4
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
+anchor_right = 0.5
 anchor_bottom = 0.5
-offset_top = -360.0
-offset_bottom = -360.0
+offset_left = -421.5
+offset_top = -52.5
+offset_right = 421.5
+offset_bottom = 52.5
+grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="BrandImage"]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
 material = SubResource("ShaderMaterial_ma3bv")
-layout_mode = 0
-offset_left = 132.0
-offset_top = 199.0
-offset_right = 1067.0
-offset_bottom = 1223.0
-scale = Vector2(0.3, 0.3)
+layout_mode = 2
 texture = ExtResource("2_t85b2")
+expand_mode = 2
 
-[node name="Label" type="Label" parent="BrandImage"]
-layout_mode = 0
-offset_left = 439.0
-offset_top = 337.0
-offset_right = 1186.0
-offset_bottom = 442.0
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
 theme_override_fonts/font = ExtResource("3_jda3u")
 theme_override_font_sizes/font_size = 80
 text = "BananaHolograma
 "
 
-[node name="SimpleChromatic" type="ColorRect" parent="BrandImage"]
+[node name="SimpleChromatic" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_aemp8")
 layout_mode = 0
 offset_left = 428.0
