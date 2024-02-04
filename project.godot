@@ -13,9 +13,7 @@ config_version=5
 config/name="godot-personal-template"
 config/version="1.0.0"
 config/tags=PackedStringArray("new_projects", "template")
-run/main_scene="res://boot/boot_screen.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
-boot_splash/image="res://assets/boot/traditional-dark.png"
 config/icon="res://icon.svg"
 boot_splash/minimum_display_time=1500
 
@@ -34,7 +32,6 @@ window/size/viewport_width=1280
 window/size/viewport_height=720
 window/size/window_width_override=1280
 window/size/window_height_override=720
-window/stretch/mode="canvas_items"
 
 [dotnet]
 
