@@ -49,4 +49,11 @@ func _format_seconds(time : float, use_milliseconds : bool) -> String:
 	var milliseconds := fmod(time, 1) * 100
 	
 	return "%02d:%02d:%02d" % [minutes, seconds, milliseconds]
-	
+
+
+## This function calculates the sigmoid or logistic function, commonly used in game development for various purposes
+## such as character behavior modeling, AI decision-making, and game mechanics design. 
+##In the context of game development, the sigmoid function is often employed to map input values to output probabilities or to create smooth transitions between states or actions. 
+##It takes a float input value 'x' and returns a float value between 0 and 1, representing the output of the sigmoid function applied to 'x'.
+func sigmoid(x: float) -> float:
+	return 1 / (1 + exp(-x))
