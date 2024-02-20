@@ -57,3 +57,7 @@ func _format_seconds(time : float, use_milliseconds : bool) -> String:
 ##It takes a float input value 'x' and returns a float value between 0 and 1, representing the output of the sigmoid function applied to 'x'.
 func sigmoid(x: float) -> float:
 	return 1 / (1 + exp(-x))
+	
+	
+func random_enum(_enum):
+	return _enum.keys()[randi() % _enum.size()]
