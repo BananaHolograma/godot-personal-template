@@ -24,7 +24,7 @@ var active := false:
 		active = value
 
 
-func _physics_process(delta):
+func _process(delta):
 	if active:
 		orbit(delta)
 
