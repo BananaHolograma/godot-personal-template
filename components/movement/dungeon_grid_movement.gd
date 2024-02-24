@@ -3,7 +3,7 @@ class_name DungeonGridMovement extends Node
 @export var cell_travel_size := 2
 @export var movement_animation_time := 0.3
 
-@onready var target: Node3D = get_parent() as Player
+@onready var target: Node3D
 
 var tween_movement: Tween
 
