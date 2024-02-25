@@ -15,7 +15,7 @@ signal state_changed(from_state: State, state: State)
 signal stack_pushed(new_state: State, stack:Array[State])
 signal stack_flushed(flushed_states: Array[State])
 
-@export var actor: CharacterBody2D
+@export var actor: Node
 @export var current_state: State = null
 @export var stack_capacity: int = 3
 @export var flush_stack_when_reach_capacity: bool = false

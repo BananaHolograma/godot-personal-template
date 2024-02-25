@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dxitjfxwkshxj"]
+[gd_scene load_steps=6 format=3 uid="uid://dxitjfxwkshxj"]
 
 [ext_resource type="Script" path="res://components/movement/first-person/first_person_controller.gd" id="1_h8wkm"]
+[ext_resource type="Script" path="res://components/behaviour/finite-state-machine/finite-state-machine.gd" id="2_uhxxt"]
+[ext_resource type="Script" path="res://components/movement/first-person/states/idle.gd" id="3_snwrv"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cwtca"]
 radius = 0.306
@@ -32,3 +34,11 @@ unique_name_in_owner = true
 current = true
 
 [node name="FirstPersonController" type="Node3D" parent="."]
+
+[node name="FiniteStateMachine" type="Node" parent="." node_paths=PackedStringArray("actor", "current_state")]
+script = ExtResource("2_uhxxt")
+actor = NodePath("..")
+current_state = NodePath("IdleFirstPerson")
+
+[node name="IdleFirstPerson" type="Node" parent="FiniteStateMachine"]
+script = ExtResource("3_snwrv")
