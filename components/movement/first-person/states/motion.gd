@@ -5,7 +5,7 @@ signal gravity_disabled
 
 @export_group("Gravity")
 ## The world gravity that it`s being applied to objects
-@export var gravity := 15.0
+@export var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 ## Enable or disable the gravity
 @export var gravity_active := true:
 	set(value):
@@ -30,7 +30,7 @@ var transformed_input := TransformedInput.new()
 func physics_update(delta: float):
 	transformed_input.update_input_direction(FSM.actor as FirstPersonController)
 	
-	if gravity_active and not FSM.actor.is_on_floor():
+	if gravity_active and not FSM.actor.is_on_floor() and not FSM.current_state_name_is("Jump"):
 		FSM.actor.velocity.y -= gravity * delta
 	
 
@@ -44,6 +44,11 @@ func move(speed: float, delta: float = get_physics_process_delta_time()):
 		# https://github.com/godotengine/godot/pull/73873
 		FSM.actor.velocity.x = lerp(FSM.actor.velocity.x, world_coordinate_space_direction.x * speed, delta * friction)
 		FSM.actor.velocity.z = lerp(FSM.actor.velocity.z, world_coordinate_space_direction.z * speed, delta * friction)
+
+
+func detect_jump():
+	if Input.is_action_just_pressed("jump") and FSM.actor.is_on_floor() and FSM.actor.JUMP:
+		state_finished.emit("Jump", {})
 
 
 func detect_crouch():

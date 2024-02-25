@@ -1,6 +1,10 @@
 class_name IdleFirstPerson extends Motion
 
 
+func _enter():
+	FSM.actor.velocity = Vector3.ZERO
+
+
 func physics_update(delta: float):
 	super.physics_update(delta)
 	
@@ -10,4 +14,5 @@ func physics_update(delta: float):
 	FSM.actor.velocity = lerp(FSM.actor.velocity, Vector3.ZERO, delta * friction)
 	FSM.actor.move_and_slide()
 
+	detect_jump()
 	detect_crouch()

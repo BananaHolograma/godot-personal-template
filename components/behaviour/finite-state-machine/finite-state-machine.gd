@@ -67,6 +67,7 @@ func change_state(new_state: State,  params: Dictionary = {}, force: bool = fals
 	current_state.params = params
 	
 	enter_state(new_state)
+	next_state = null
 
 	
 func change_state_by_name(_name: String, params: Dictionary = {}, force: bool = false):

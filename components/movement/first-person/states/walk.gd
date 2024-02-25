@@ -3,6 +3,9 @@ class_name WalkFirstPerson extends Motion
 @export var speed := 3.5
 
 
+func _enter():
+	FSM.actor.velocity.y = 0
+
 func physics_update(delta: float):
 	super.physics_update(delta)
 	
@@ -15,4 +18,5 @@ func physics_update(delta: float):
 	
 	FSM.actor.move_and_slide()
 	
+	detect_jump()
 	detect_crouch()
