@@ -14,3 +14,5 @@ func physics_update(delta: float):
 	
 	
 	FSM.actor.move_and_slide()
+	
+	detect_crouch()

@@ -9,3 +9,5 @@ func physics_update(delta: float):
 		
 	FSM.actor.velocity = lerp(FSM.actor.velocity, Vector3.ZERO, delta * friction)
 	FSM.actor.move_and_slide()
+
+	detect_crouch()

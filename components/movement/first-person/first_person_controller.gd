@@ -1,6 +1,5 @@
 class_name FirstPersonController extends CharacterBody3D
 
-
 @export_group("Mechanics")
 @export var JUMP := true
 @export var WALL_JUMP := false
@@ -11,8 +10,12 @@ class_name FirstPersonController extends CharacterBody3D
 @export var CROUCH := true
 @export var CRAWL := true
 
+@onready var finite_state_machine: FiniteStateMachine = $FiniteStateMachine
 @onready var camera: Camera3D = %Camera3D
 @onready var head: Node3D = $Head
+@onready var ceil_shape_detector: ShapeCast3D = %CeilShapeCast
+@onready var stand_collision_shape: CollisionShape3D = $StandCollisionShape
+@onready var crouch_collision_shape: CollisionShape3D = $CrouchCollisionShape
 
 ## TODO - GET VALUES FROM GAME SETTINGS SAVED GAME
 @export_group("Camera parameters")
@@ -31,6 +34,8 @@ func _ready():
 	
 	GameEvents.lock_player.connect(lock_player.bind(true))
 	GameEvents.unlock_player.connect(lock_player.bind(false))
+	
+	finite_state_machine.state_changed.connect(on_state_changed)
 
 
 func _unhandled_input(event: InputEvent):
@@ -39,10 +44,6 @@ func _unhandled_input(event: InputEvent):
 		
 	if Input.is_action_just_pressed("ui_cancel"):
 		_switch_mouse_mode()
-
-
-func _physics_process(delta):
-	pass
 
 
 func rotate_camera(relative_x: float, relative_y: float):
@@ -58,6 +59,22 @@ func rotate_camera(relative_x: float, relative_y: float):
 	head.rotation.x = lerp_angle(head.rotation.x, target_rotation_x, camera_sensitivity)
 
 
+func update_collisions(current_state: State):
+	match current_state.name:
+		"Idle", "Walk":
+			stand_collision_shape.disabled = false
+			crouch_collision_shape.disabled = true
+		"Crouch":
+			stand_collision_shape.disabled = true
+			crouch_collision_shape.disabled = false
+		"Crawl":
+			stand_collision_shape.disabled = true
+			crouch_collision_shape.disabled = true
+		_:
+			stand_collision_shape.disabled = false
+			crouch_collision_shape.disabled = true
+			
+			
 ## TODO - SET WHERE TO LOCK THE MOVEMENT
 func lock_player(lock : bool) -> void:
 	if lock:
@@ -73,3 +90,7 @@ func _switch_mouse_mode() -> void:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	else:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
+### SIGNAL CALLBACKS ###
+func on_state_changed(_previous: State, _current: State):
+	update_collisions(_current)
