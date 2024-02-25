@@ -1,10 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://dxitjfxwkshxj"]
+[gd_scene load_steps=17 format=3 uid="uid://dxitjfxwkshxj"]
 
 [ext_resource type="Script" path="res://components/movement/first-person/first_person_controller.gd" id="1_h8wkm"]
 [ext_resource type="Script" path="res://components/behaviour/finite-state-machine/finite-state-machine.gd" id="2_uhxxt"]
 [ext_resource type="Script" path="res://components/movement/first-person/states/idle.gd" id="3_snwrv"]
 [ext_resource type="Script" path="res://components/movement/first-person/states/walk.gd" id="4_vfkqp"]
 [ext_resource type="Script" path="res://components/movement/first-person/states/crouch.gd" id="5_7267j"]
+[ext_resource type="Script" path="res://components/movement/first-person/states/run.gd" id="5_v6cna"]
 [ext_resource type="Script" path="res://components/movement/first-person/states/crawl.gd" id="6_1ugdw"]
 [ext_resource type="Script" path="res://components/movement/first-person/states/jump.gd" id="7_4n1os"]
 
@@ -161,6 +162,9 @@ script = ExtResource("3_snwrv")
 
 [node name="Walk" type="Node" parent="FiniteStateMachine"]
 script = ExtResource("4_vfkqp")
+
+[node name="Run" type="Node" parent="FiniteStateMachine"]
+script = ExtResource("5_v6cna")
 
 [node name="Crouch" type="Node" parent="FiniteStateMachine"]
 script = ExtResource("5_7267j")

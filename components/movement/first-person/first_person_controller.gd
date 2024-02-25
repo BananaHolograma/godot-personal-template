@@ -55,7 +55,6 @@ func rotate_camera(relative_x: float, relative_y: float):
 	var target_rotation_x = head.rotation.x - pitch_input # Head & Neck rotation
 	target_rotation_x = clamp(target_rotation_x , -camera_rotation_limit, camera_rotation_limit)
 	
-	
 	rotation.y =  lerp_angle(rotation.y, target_rotation_y, camera_sensitivity)
 	head.rotation.x = lerp_angle(head.rotation.x, target_rotation_x, camera_sensitivity)
 

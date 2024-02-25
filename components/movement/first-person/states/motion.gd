@@ -5,7 +5,7 @@ signal gravity_disabled
 
 @export_group("Gravity")
 ## The world gravity that it`s being applied to objects
-@export var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
+@export var gravity: float = 30.0
 ## Enable or disable the gravity
 @export var gravity_active := true:
 	set(value):
