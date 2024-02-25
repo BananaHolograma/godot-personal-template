@@ -5,7 +5,7 @@ class_name FirstPersonController extends CharacterBody3D
 @export var WALL_JUMP := false
 ## RUN needs to be active also to use the slide
 @export var RUN := true
-@export var WALL_RUN := false
+#@export var WALL_RUN := false
 @export var SLIDE := false
 @export var CROUCH := true
 @export var CRAWL := true
@@ -15,7 +15,6 @@ class_name FirstPersonController extends CharacterBody3D
 @onready var head: Node3D = $Head
 @onready var eyes: Node3D = $Head/Eyes
 @onready var camera_3d: Camera3D = %Camera3D
-
 
 @onready var ceil_shape_detector: ShapeCast3D = %CeilShapeCast
 @onready var stand_collision_shape: CollisionShape3D = $StandCollisionShape

@@ -1,7 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://dxitjfxwkshxj"]
+[gd_scene load_steps=20 format=3 uid="uid://dxitjfxwkshxj"]
 
 [ext_resource type="Script" path="res://components/movement/first-person/first_person_controller.gd" id="1_h8wkm"]
+[ext_resource type="Script" path="res://components/interactions/interactable/interactor.gd" id="2_kg4ik"]
 [ext_resource type="Script" path="res://components/behaviour/finite-state-machine/finite-state-machine.gd" id="2_uhxxt"]
+[ext_resource type="Script" path="res://components/movement/first-person/hands.gd" id="3_s7r2t"]
 [ext_resource type="Script" path="res://components/movement/first-person/states/idle.gd" id="3_snwrv"]
 [ext_resource type="Script" path="res://components/movement/first-person/states/walk.gd" id="4_vfkqp"]
 [ext_resource type="Script" path="res://components/movement/first-person/states/crouch.gd" id="5_7267j"]
@@ -153,7 +155,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0948911, 0)
 unique_name_in_owner = true
 current = true
 
-[node name="FirstPersonController" type="Node3D" parent="."]
+[node name="Interactor" type="RayCast3D" parent="Head/Eyes" node_paths=PackedStringArray("actor")]
+target_position = Vector3(0, 0, -1.5)
+debug_shape_custom_color = Color(0.45098, 0.913725, 0, 1)
+script = ExtResource("2_kg4ik")
+actor = NodePath("../../..")
+
+[node name="Hands" type="Node3D" parent="." node_paths=PackedStringArray("camera")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.389375, -0.309644)
+script = ExtResource("3_s7r2t")
+camera = NodePath("../Head/Eyes/Camera3D")
+
+[node name="RightHand" type="Marker3D" parent="Hands"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.391305, 0.181013, -0.333738)
+
+[node name="LeftHand" type="Marker3D" parent="Hands"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.512748, 0.187, -0.32792)
 
 [node name="FiniteStateMachine" type="Node" parent="." node_paths=PackedStringArray("actor", "current_state")]
 script = ExtResource("2_uhxxt")

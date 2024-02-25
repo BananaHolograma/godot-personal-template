@@ -7,10 +7,11 @@ signal cancel_interact(interactor: Interactor)
 
 @export_group("Interaction Parameters")
 @export var parameters: InteractableParameters
-@onready var target = get_parent()
 @export_group("Pointers")
 @export var focus_pointer: CompressedTexture2D
 @export var interact_pointer: CompressedTexture2D
+
+@onready var target = get_parent()
 
 var actor: Interactor
 
@@ -25,6 +26,16 @@ func _ready():
 	cancel_interact.connect(on_cancel_interact)
 	focused.connect(on_focused)
 	unfocused.connect(on_unfocused)
+
+
+func activate():
+	collision_layer = 2
+	monitorable = true
+
+
+func deactivate():
+	collision_layer = 0
+	monitorable = false
 
 
 func is_scannable() -> bool:
