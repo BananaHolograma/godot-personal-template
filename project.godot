@@ -40,7 +40,6 @@ project/assembly_name="godot-personal-template"
 [file_customization]
 
 folder_colors={
-"res://addons/": "yellow",
 "res://autoload/": "blue",
 "res://components/": "pink",
 "res://debug/": "gray",

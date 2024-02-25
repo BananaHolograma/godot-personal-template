@@ -18,7 +18,9 @@ class_name FirstPersonController extends CharacterBody3D
 @export_group("Camera parameters")
 ## The camera sensitivity to balance the smoothness of the rotation
 @export_range(0, 1, 0.01) var camera_sensitivity := 0.3
+## The mouse sensitivity to adjust the speed of the mouse movement applied to the camera or world in general
 @export var mouse_sensitivity := 3.0
+## The limit where the camera can rotate relative to x-axis(up-down), by default it's 90 degrees or PI / 2
 @export var camera_rotation_limit := PI / 2
 
 var locked := false

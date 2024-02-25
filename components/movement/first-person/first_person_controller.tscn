@@ -29,5 +29,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0948911, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head/Eyes"]
 unique_name_in_owner = true
+current = true
 
 [node name="FirstPersonController" type="Node3D" parent="."]

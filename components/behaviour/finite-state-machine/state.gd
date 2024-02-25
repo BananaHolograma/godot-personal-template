@@ -1,3 +1,4 @@
+@icon("res://components/behaviour/finite-state-machine/icons/state_icon.png")
 class_name State extends Node
 
 signal state_entered

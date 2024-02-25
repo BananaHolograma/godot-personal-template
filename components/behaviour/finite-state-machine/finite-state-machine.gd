@@ -8,6 +8,7 @@
 # There is nothing wrong using the same process on the CharacterBody2D to handle all the movement but when the things start to grow and the player can perform a wide number of moves it is better to start thinking about a modular way to build this movement. 
 # In this case, a state machine is a design pattern widely employed in the video game industry to manage this complexity
 ##
+@icon("res://components/behaviour/finite-state-machine/icons/icon.png")
 class_name FiniteStateMachine extends Node
 
 signal state_changed(from_state: State, state: State)

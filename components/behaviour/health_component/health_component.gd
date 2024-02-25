@@ -6,7 +6,7 @@
 # It is commonly used with a "CharacterBody2D" but can also be applied to a "StaticRigidBody2D," 
 # allowing you to add health management to objects like trees or in-game elements, 
 ##
-
+@icon("res://components/behaviour/health_component/suit_hearts.svg")
 class_name HealthComponent extends Node
 
 signal health_changed(amount: int, type: TYPES)
