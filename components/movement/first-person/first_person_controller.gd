@@ -13,6 +13,8 @@ class_name FirstPersonController extends CharacterBody3D
 @onready var finite_state_machine: FiniteStateMachine = $FiniteStateMachine
 @onready var camera: Camera3D = %Camera3D
 @onready var head: Node3D = $Head
+@onready var eyes: Node3D = $Head/Eyes
+
 @onready var ceil_shape_detector: ShapeCast3D = %CeilShapeCast
 @onready var stand_collision_shape: CollisionShape3D = $StandCollisionShape
 @onready var crouch_collision_shape: CollisionShape3D = $CrouchCollisionShape
@@ -27,7 +29,25 @@ class_name FirstPersonController extends CharacterBody3D
 ## The limit where the camera can rotate relative to x-axis(up-down), by default it's 90 degrees or PI / 2
 @export var camera_rotation_limit := PI / 2
 
+
+## Enable head bobbing for this FPS
+@export_group("Head bobbing")
+@export var head_bobbing_enabled := true
+@export var head_bob_amplitude := 0.08
+@export var head_bob_frequency := 2.0
+
+@onready var original_eyes_position := eyes.transform.origin
+
 var locked := false
+var head_bob_time_passed := 0.0
+
+func _unhandled_input(event: InputEvent):
+	if not locked and event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+		rotate_camera(event.relative.x, event.relative.y)
+		
+	if Input.is_action_just_pressed("ui_cancel"):
+		_switch_mouse_mode()
+
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -38,12 +58,8 @@ func _ready():
 	finite_state_machine.state_changed.connect(on_state_changed)
 
 
-func _unhandled_input(event: InputEvent):
-	if not locked and event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-		rotate_camera(event.relative.x, event.relative.y)
-		
-	if Input.is_action_just_pressed("ui_cancel"):
-		_switch_mouse_mode()
+func _physics_process(delta):
+	head_bobbing(delta)
 
 
 func rotate_camera(relative_x: float, relative_y: float):
@@ -56,6 +72,20 @@ func rotate_camera(relative_x: float, relative_y: float):
 	
 	rotation.y =  lerp_angle(rotation.y, target_rotation_y, camera_sensitivity)
 	head.rotation.x = lerp_angle(head.rotation.x, target_rotation_x, camera_sensitivity)
+
+
+func head_bobbing(delta: float = get_physics_process_delta_time()) -> void:
+	if head_bobbing_enabled and is_on_floor():
+		var current_state = finite_state_machine.current_state as State
+		
+		if not current_state.transformed_input.world_coordinate_space_direction.is_zero_approx():
+			head_bob_time_passed += delta * velocity.length() * float(is_on_floor())
+			eyes.transform.origin = Vector3(
+				cos(head_bob_time_passed * head_bob_frequency / 2) * head_bob_amplitude, 
+				sin(head_bob_time_passed * head_bob_frequency) * head_bob_amplitude, 
+				eyes.transform.origin.z)
+		else:
+			eyes.position.move_toward(original_eyes_position, delta * 10.0)
 
 
 func update_collisions(current_state: State):
