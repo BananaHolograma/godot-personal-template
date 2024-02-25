@@ -14,6 +14,8 @@ class_name FirstPersonController extends CharacterBody3D
 @onready var camera: Camera3D = %Camera3D
 @onready var head: Node3D = $Head
 @onready var eyes: Node3D = $Head/Eyes
+@onready var camera_3d: Camera3D = %Camera3D
+
 
 @onready var ceil_shape_detector: ShapeCast3D = %CeilShapeCast
 @onready var stand_collision_shape: CollisionShape3D = $StandCollisionShape
@@ -35,6 +37,17 @@ class_name FirstPersonController extends CharacterBody3D
 @export var head_bobbing_enabled := true
 @export var head_bob_amplitude := 0.08
 @export var head_bob_frequency := 2.0
+
+@export_group("Swing head")
+## Enable the swing head when move on horizontal axis (right & left)
+@export var SWING_HEAD_ENABLED := false
+## The rotation swing to apply in degrees
+@export var SWING_HEAD_ROTATION := 3.0
+@export var SWING_HEAD_ROTATION_LERP := 0.05
+@export var SWING_HEAD_RECOVERY_LERP := 0.15
+
+@export_group("Camera FOV")
+@export var camera_fov_range = [2, 75.0, 85.0, 8.0]
 
 @onready var original_eyes_position := eyes.transform.origin
 
@@ -60,6 +73,8 @@ func _ready():
 
 func _physics_process(delta):
 	head_bobbing(delta)
+	camera_fov(delta)
+	swing_head()
 
 
 func rotate_camera(relative_x: float, relative_y: float):
@@ -86,6 +101,23 @@ func head_bobbing(delta: float = get_physics_process_delta_time()) -> void:
 				eyes.transform.origin.z)
 		else:
 			eyes.position.move_toward(original_eyes_position, delta * 10.0)
+
+
+func camera_fov(delta: float = get_physics_process_delta_time()) -> void:
+	if finite_state_machine.current_state_name_is("Run"):
+		camera_3d.fov = lerp(camera_3d.fov, camera_fov_range[2], delta * camera_fov_range[3])
+	else:
+		camera_3d.fov = lerp(camera_3d.fov, camera_fov_range[1], delta * camera_fov_range[3])
+	
+
+func swing_head() -> void:
+	if SWING_HEAD_ENABLED:
+		var direction := finite_state_machine.current_state.transformed_input.input_direction as Vector2
+
+		if direction in [Vector2.RIGHT, Vector2.LEFT]:
+			head.rotation.z = lerp_angle(head.rotation.z, -sign(direction.x) * deg_to_rad(SWING_HEAD_ROTATION), SWING_HEAD_ROTATION_LERP)
+		else:
+			head.rotation.z = lerp_angle(head.rotation.z, 0, SWING_HEAD_RECOVERY_LERP)
 
 
 func update_collisions(current_state: State):

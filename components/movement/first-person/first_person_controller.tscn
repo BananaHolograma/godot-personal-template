@@ -120,6 +120,7 @@ height = 0.7
 collision_layer = 4
 script = ExtResource("1_h8wkm")
 SLIDE = true
+SWING_HEAD_ENABLED = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
