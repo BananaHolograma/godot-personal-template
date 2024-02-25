@@ -21,14 +21,13 @@ class_name FirstPersonController extends CharacterBody3D
 ## TODO - GET VALUES FROM GAME SETTINGS SAVED GAME
 @export_group("Camera parameters")
 ## The camera sensitivity to balance the smoothness of the rotation
-@export_range(0, 1, 0.01) var camera_sensitivity := 0.3
+@export_range(0, 1, 0.01) var camera_sensitivity := 0.45
 ## The mouse sensitivity to adjust the speed of the mouse movement applied to the camera or world in general
 @export var mouse_sensitivity := 3.0
 ## The limit where the camera can rotate relative to x-axis(up-down), by default it's 90 degrees or PI / 2
 @export var camera_rotation_limit := PI / 2
 
 var locked := false
-
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -65,7 +64,7 @@ func update_collisions(current_state: State):
 			stand_collision_shape.disabled = false
 			crouch_collision_shape.disabled = true
 			crawl_collision_shape.disabled = true
-		"Crouch":
+		"Crouch", "Slide":
 			stand_collision_shape.disabled = true
 			crouch_collision_shape.disabled = false
 			crawl_collision_shape.disabled = true
