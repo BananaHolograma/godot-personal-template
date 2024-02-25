@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxitjfxwkshxj"]
+
+[ext_resource type="Script" path="res://components/movement/first-person/first_person_controller.gd" id="1_h8wkm"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cwtca"]
+radius = 0.306
+height = 0.690229
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5lhmj"]
+radius = 0.30624
+height = 1.8
+
+[node name="Actor" type="CharacterBody3D"]
+collision_layer = 4
+script = ExtResource("1_h8wkm")
+
+[node name="CeilShapeDetector" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.751189, 0)
+shape = SubResource("CapsuleShape3D_cwtca")
+
+[node name="BodyCollisionShape" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_5lhmj")
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.83649, 0)
+
+[node name="Eyes" type="Node3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0948911, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Head/Eyes"]
+unique_name_in_owner = true
+
+[node name="FirstPersonController" type="Node3D" parent="."]

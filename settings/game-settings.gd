@@ -9,7 +9,7 @@ class_name GameSettings extends Resource
 	"ambient": 1.0
 }
 
-@export_range(1.0, 20.0, 0.1) var mouse_sensitivity := 3.0
+@export_range(1.0, 20.0, 0.1) var MOUSE_SENSITIVITY := 3.0
 @export var DISPLAY_MODE := DisplayServer.WINDOW_MODE_WINDOWED
 @export var VSYNC := DisplayServer.VSYNC_DISABLED
 @export var ANTIALIASING :=  Viewport.MSAA_DISABLED
