@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://dxitjfxwkshxj"]
+[gd_scene load_steps=15 format=3 uid="uid://dxitjfxwkshxj"]
 
 [ext_resource type="Script" path="res://components/movement/first-person/first_person_controller.gd" id="1_h8wkm"]
 [ext_resource type="Script" path="res://components/behaviour/finite-state-machine/finite-state-machine.gd" id="2_uhxxt"]
 [ext_resource type="Script" path="res://components/movement/first-person/states/idle.gd" id="3_snwrv"]
 [ext_resource type="Script" path="res://components/movement/first-person/states/walk.gd" id="4_vfkqp"]
 [ext_resource type="Script" path="res://components/movement/first-person/states/crouch.gd" id="5_7267j"]
+[ext_resource type="Script" path="res://components/movement/first-person/states/crawl.gd" id="6_1ugdw"]
 
 [sub_resource type="Animation" id="Animation_abq5f"]
 resource_name = "crouch"
@@ -63,6 +64,31 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_miwiu"]
 resource_name = "crawl"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0.134, 0), Vector3(0, -0.428, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CeilShapeCast:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 1, 0), Vector3(0, 0.534, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t4eih"]
 _data = {
@@ -78,6 +104,10 @@ height = 1.8
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6mqlo"]
 radius = 0.3
 height = 1.12006
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bdeud"]
+radius = 0.3
+height = 0.601286
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dupr8"]
 radius = 0.3
@@ -98,6 +128,10 @@ shape = SubResource("CapsuleShape3D_5lhmj")
 [node name="CrouchCollisionShape" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.337916, 0)
 shape = SubResource("CapsuleShape3D_6mqlo")
+
+[node name="CrawlCollisionShape" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.589914, 0)
+shape = SubResource("CapsuleShape3D_bdeud")
 
 [node name="CeilShapeCast" type="ShapeCast3D" parent="."]
 unique_name_in_owner = true
@@ -129,3 +163,6 @@ script = ExtResource("4_vfkqp")
 
 [node name="Crouch" type="Node" parent="FiniteStateMachine"]
 script = ExtResource("5_7267j")
+
+[node name="Crawl" type="Node" parent="FiniteStateMachine"]
+script = ExtResource("6_1ugdw")

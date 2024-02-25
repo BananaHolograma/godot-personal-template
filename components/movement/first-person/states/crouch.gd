@@ -2,14 +2,14 @@ class_name CrouchFirstPerson extends Motion
 
 @export var speed := 2.0
 
-
 func _enter() -> void:
 	if previous_states.is_empty() or not previous_states.back().name in ["Crawl", "Slide"]:
 		animation_player.play("crouch")
 
 
 func _exit():
-	animation_player.play_backwards("crouch")
+	if not FSM.next_state is CrawlFirstPerson:
+		animation_player.play_backwards("crouch")
 
 
 func physics_update(delta: float):
@@ -21,7 +21,8 @@ func physics_update(delta: float):
 		else:
 			state_finished.emit("Walk", {})
 	
-	
 	move(speed)
 	
 	FSM.actor.move_and_slide()
+	
+	detect_crawl()

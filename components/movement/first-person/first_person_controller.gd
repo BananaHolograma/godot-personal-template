@@ -16,6 +16,7 @@ class_name FirstPersonController extends CharacterBody3D
 @onready var ceil_shape_detector: ShapeCast3D = %CeilShapeCast
 @onready var stand_collision_shape: CollisionShape3D = $StandCollisionShape
 @onready var crouch_collision_shape: CollisionShape3D = $CrouchCollisionShape
+@onready var crawl_collision_shape: CollisionShape3D = $CrawlCollisionShape
 
 ## TODO - GET VALUES FROM GAME SETTINGS SAVED GAME
 @export_group("Camera parameters")
@@ -64,15 +65,19 @@ func update_collisions(current_state: State):
 		"Idle", "Walk":
 			stand_collision_shape.disabled = false
 			crouch_collision_shape.disabled = true
+			crawl_collision_shape.disabled = true
 		"Crouch":
 			stand_collision_shape.disabled = true
 			crouch_collision_shape.disabled = false
+			crawl_collision_shape.disabled = true
 		"Crawl":
 			stand_collision_shape.disabled = true
 			crouch_collision_shape.disabled = true
+			crawl_collision_shape.disabled = false
 		_:
 			stand_collision_shape.disabled = false
 			crouch_collision_shape.disabled = true
+			crawl_collision_shape.disabled = true
 			
 			
 ## TODO - SET WHERE TO LOCK THE MOVEMENT

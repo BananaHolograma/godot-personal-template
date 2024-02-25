@@ -5,7 +5,7 @@ signal gravity_disabled
 
 @export_group("Gravity")
 ## The world gravity that it`s being applied to objects
-@export var gravity := 9.8
+@export var gravity := 15.0
 ## Enable or disable the gravity
 @export var gravity_active := true:
 	set(value):
@@ -26,7 +26,6 @@ signal gravity_disabled
 @onready var animation_player: AnimationPlayer = owner.get_node("AnimationPlayer")
 
 var transformed_input := TransformedInput.new()
-
 
 func physics_update(delta: float):
 	transformed_input.update_input_direction(FSM.actor as FirstPersonController)
@@ -52,12 +51,18 @@ func detect_crouch():
 		state_finished.emit("Crouch", {})
 
 
+func detect_crawl():
+	if Input.is_action_pressed("crawl") and FSM.actor.is_on_floor() and FSM.actor.CRAWL:
+		state_finished.emit("Crawl", {})
+
+
 func enable_gravity():
 	gravity_active = true
 
 
 func disable_gravity():
 	gravity_active = false
+
 
 
 class TransformedInput:
@@ -69,4 +74,6 @@ class TransformedInput:
 	func update_input_direction(actor: CharacterBody3D) -> void:
 		input_direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 		world_coordinate_space_direction = (actor.transform.basis * Vector3(input_direction.x, 0, input_direction.y)).normalized()	
+
+
 

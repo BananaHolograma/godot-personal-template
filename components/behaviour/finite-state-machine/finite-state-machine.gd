@@ -23,6 +23,7 @@ signal stack_flushed(flushed_states: Array[State])
 
 var states: Dictionary = {}
 var states_stack: Array[State] = []
+var next_state: State
 var locked: bool = false
 		
 func _ready():
@@ -150,12 +151,14 @@ func _add_state_to_dictionary(state: State):
 		states[state.name] = get_node(state.get_path())
 
 
-func on_finished_state(next_state, params):
-	if typeof(next_state) == TYPE_STRING:	
-		change_state_by_name(next_state,  params, false)
+func on_finished_state(_next_state, params):	
+	if typeof(_next_state) == TYPE_STRING:
+		next_state =  get_state(_next_state)
+		change_state_by_name(_next_state,  params, false)
 		
-	if next_state is State:
-		change_state(next_state, params, false)
+	if _next_state is State:
+		next_state = _next_state
+		change_state(_next_state, params, false)
 
 
 func on_stack_pushed(_new_state: State, stack:Array[State]):
