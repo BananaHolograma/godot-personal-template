@@ -14,7 +14,7 @@ enum HANDS {
 ## The maximum weight this hands can grab
 @export var maximum_lift_mass := 10.0
 @export var dominant_hand := HANDS.RIGHT
-@export var can_use_both_hands := true
+@export var can_use_both_hands := false
 
 @onready var right_hand: Marker3D = $RightHand
 @onready var left_hand: Marker3D = $LeftHand
@@ -25,13 +25,15 @@ enum HANDS {
 
 
 func _unhandled_input(_event: InputEvent):
-	if not _hand_is_free(HANDS.RIGHT):
-		if InputMap.has_action("interact") and Input.is_action_just_pressed("interact"):
-			drop(HANDS.RIGHT)
-		
-	if InputMap.has_action("throw") and Input.is_action_just_pressed("throw"):
-		throw(HANDS.RIGHT)
-
+	if can_use_both_hands:
+		pass ## TODO - MANAGE THE INTERACTION WHEN BOTH HANDS CAN PICK AND THROW OBJECTS
+	else:
+		if not _hand_is_free(dominant_hand):
+			if InputMap.has_action("interact") and Input.is_action_just_pressed("interact"):
+				drop(dominant_hand)
+				
+			if InputMap.has_action("throw") and Input.is_action_just_pressed("throw"):
+				throw(dominant_hand)
 
 func _ready():
 	GameEvents.interacted.connect(on_interact)

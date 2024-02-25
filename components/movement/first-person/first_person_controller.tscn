@@ -156,7 +156,7 @@ unique_name_in_owner = true
 current = true
 
 [node name="Interactor" type="RayCast3D" parent="Head/Eyes" node_paths=PackedStringArray("actor")]
-target_position = Vector3(0, 0, -1.5)
+target_position = Vector3(0, 0, -2.5)
 debug_shape_custom_color = Color(0.45098, 0.913725, 0, 1)
 script = ExtResource("2_kg4ik")
 actor = NodePath("../../..")
