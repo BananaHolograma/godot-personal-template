@@ -38,7 +38,7 @@ func _enter():
 	FSM.actor.velocity.y = jump_velocity
 	FSM.actor.move_and_slide()
 
-func _exit():
+func _exit(_next_state: State):
 	jump_count = 1
 	
 	

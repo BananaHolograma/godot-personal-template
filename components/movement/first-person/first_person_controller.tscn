@@ -12,34 +12,6 @@
 [ext_resource type="Script" path="res://components/movement/first-person/states/slide.gd" id="6_d52pe"]
 [ext_resource type="Script" path="res://components/movement/first-person/states/jump.gd" id="7_4n1os"]
 
-[sub_resource type="Animation" id="Animation_abq5f"]
-resource_name = "crouch"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Head:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0.836, 0), Vector3(0, 0.134, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CeilShapeCast:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 1.697, 0), Vector3(0, 1, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_p3lw6"]
 length = 0.001
 tracks/0/type = "value"
@@ -93,6 +65,34 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(0, 1, 0), Vector3(0, 0.534, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_abq5f"]
+resource_name = "crouch"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0.836, 0), Vector3(0, 0.134, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CeilShapeCast:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 1.697, 0), Vector3(0, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t4eih"]
@@ -176,6 +176,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.512748, 0.187, -0.32792)
 script = ExtResource("2_uhxxt")
 actor = NodePath("..")
 current_state = NodePath("Idle")
+stack_capacity = null
+flush_stack_when_reach_capacity = null
+enable_stack = null
 
 [node name="Idle" type="Node" parent="FiniteStateMachine"]
 script = ExtResource("3_snwrv")
@@ -185,19 +188,50 @@ script = ExtResource("4_vfkqp")
 
 [node name="Run" type="Node" parent="FiniteStateMachine"]
 script = ExtResource("5_v6cna")
+speed = null
+sprint_time = null
+gravity = null
+gravity_active = null
+fall_velocity_limit = null
+friction = null
 
 [node name="Slide" type="Node" parent="FiniteStateMachine"]
 script = ExtResource("6_d52pe")
+speed = null
+slide_time = null
+friction_momentum = null
+slide_tilt = null
+gravity = null
+gravity_active = null
+fall_velocity_limit = null
+friction = null
 
 [node name="Crouch" type="Node" parent="FiniteStateMachine"]
 script = ExtResource("5_7267j")
+speed = null
+gravity = null
+gravity_active = null
+fall_velocity_limit = null
+friction = null
 
 [node name="Crawl" type="Node" parent="FiniteStateMachine"]
 script = ExtResource("6_1ugdw")
+speed = null
+gravity = null
+gravity_active = null
+fall_velocity_limit = null
+friction = null
 
 [node name="Jump" type="Node" parent="FiniteStateMachine"]
 script = ExtResource("7_4n1os")
 air_control_speed = 7.5
+jump_times = null
 jump_height = 3.0
 jump_time_to_peak = 0.4
 jump_time_to_fall = 0.55
+override_jump_gravity = null
+override_fall_gravity = null
+gravity = null
+gravity_active = null
+fall_velocity_limit = null
+friction = null

@@ -23,12 +23,12 @@ func _enter():
 	slide_side = sign(randi_range(-1, 1))
 	
 	
-func _exit():
+func _exit(next_state: State) -> void:
 	slide_timer.stop();
 	decrease_rate = slide_time
 	FSM.actor.head.rotation.z = 0.0
 	
-	if FSM.next_state is JumpFirstPerson:
+	if next_state is JumpFirstPerson:
 		animation_player.play_backwards("crouch")
 
 

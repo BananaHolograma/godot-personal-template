@@ -15,7 +15,7 @@ func _enter():
 		speed_timer.start()
 
 
-func _exit():
+func _exit(_next_state: State):
 	speed_timer.stop()
 
 

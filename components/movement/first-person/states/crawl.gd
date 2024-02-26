@@ -7,7 +7,7 @@ func _enter() -> void:
 	animation_player.play("crawl")
 
 
-func _exit():
+func _exit(next_state: State):
 	animation_player.play_backwards("crawl")
 
 

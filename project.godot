@@ -10,7 +10,8 @@ config_version=5
 
 [application]
 
-config/name="godot-personal-template"
+config/name="Superhost"
+config/description="An indie horror game that happens in a vacational house"
 config/version="1.0.0"
 config/tags=PackedStringArray("new_projects", "template")
 config/features=PackedStringArray("4.2", "GL Compatibility")

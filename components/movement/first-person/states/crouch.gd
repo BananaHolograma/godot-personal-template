@@ -7,8 +7,8 @@ func _enter() -> void:
 		animation_player.play("crouch")
 
 
-func _exit():
-	if not FSM.next_state is CrawlFirstPerson:
+func _exit(next_state: State):
+	if not next_state is CrawlFirstPerson:
 		animation_player.play_backwards("crouch")
 
 

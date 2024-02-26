@@ -57,8 +57,8 @@ func change_state(new_state: State,  params: Dictionary = {}, force: bool = fals
 	if not force and current_state_is(new_state):
 		return
 	
-	if current_state is State:
-		exit_state(current_state)
+	if current_state is State and next_state is State:
+		exit_state(current_state, next_state)
 	
 	push_state_to_stack(current_state)
 	state_changed.emit(current_state, new_state)
@@ -84,8 +84,8 @@ func enter_state(state: State):
 	state.state_entered.emit()
 	
 
-func exit_state(state: State):
-	state._exit()
+func exit_state(state: State, next_state: State):
+	state._exit(next_state)
 
 
 func push_state_to_stack(state: State) -> void:

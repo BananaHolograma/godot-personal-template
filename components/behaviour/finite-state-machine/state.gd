@@ -15,7 +15,7 @@ func _enter() -> void:
 	pass
 	
 
-func _exit() -> void:
+func _exit(_next_state: State) -> void:
 	pass
 	
 
