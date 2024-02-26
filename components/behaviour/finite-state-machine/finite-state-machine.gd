@@ -84,8 +84,8 @@ func enter_state(state: State):
 	state.state_entered.emit()
 	
 
-func exit_state(state: State, next_state: State):
-	state._exit(next_state)
+func exit_state(state: State, _next_state: State):
+	state._exit(_next_state)
 
 
 func push_state_to_stack(state: State) -> void:
