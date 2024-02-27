@@ -1,5 +1,6 @@
 class_name JumpFirstPerson extends Motion
 
+@export var velocity_barrier_to_fall := -15
 @export var air_control_speed := 2.5
 ## The times this actor can jump
 @export var jump_times := 1
@@ -56,6 +57,9 @@ func physics_update(delta: float):
 		else:
 			FSM.actor.velocity.y -= fall_gravity * delta
 			
+			if velocity_barrier_to_fall < 0 and FSM.actor.velocity.y < velocity_barrier_to_fall:
+				state_finished.emit("Fall", {})
+				
 	FSM.actor.velocity.x = lerp(FSM.actor.velocity.x, transformed_input.world_coordinate_space_direction.x * air_control_speed, delta)
 	FSM.actor.velocity.z = lerp(FSM.actor.velocity.z, transformed_input.world_coordinate_space_direction.z * air_control_speed, delta)
 

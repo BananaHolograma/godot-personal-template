@@ -28,7 +28,11 @@ func physics_update(delta: float):
 		state_finished.emit("Run", {})
 		return
 	
+	stair_step_up()
+	
 	FSM.actor.move_and_slide()
+	
+	stair_step_down()
 	
 	detect_jump()
 	detect_crouch()

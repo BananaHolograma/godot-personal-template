@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dxitjfxwkshxj"]
+[gd_scene load_steps=21 format=3 uid="uid://dxitjfxwkshxj"]
 
 [ext_resource type="Script" path="res://components/movement/first-person/first_person_controller.gd" id="1_h8wkm"]
 [ext_resource type="Script" path="res://components/interactions/interactable/interactor.gd" id="2_kg4ik"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://components/movement/first-person/states/crawl.gd" id="6_1ugdw"]
 [ext_resource type="Script" path="res://components/movement/first-person/states/slide.gd" id="6_d52pe"]
 [ext_resource type="Script" path="res://components/movement/first-person/states/jump.gd" id="7_4n1os"]
+[ext_resource type="Script" path="res://components/movement/first-person/states/fall.gd" id="12_i7g2d"]
 
 [sub_resource type="Animation" id="Animation_p3lw6"]
 length = 0.001
@@ -225,13 +226,9 @@ friction = null
 [node name="Jump" type="Node" parent="FiniteStateMachine"]
 script = ExtResource("7_4n1os")
 air_control_speed = 7.5
-jump_times = null
 jump_height = 3.0
 jump_time_to_peak = 0.4
 jump_time_to_fall = 0.55
-override_jump_gravity = null
-override_fall_gravity = null
-gravity = null
-gravity_active = null
-fall_velocity_limit = null
-friction = null
+
+[node name="Fall" type="Node" parent="FiniteStateMachine"]
+script = ExtResource("12_i7g2d")

@@ -36,7 +36,11 @@ func physics_update(delta):
 	
 	detect_jump()
 	
+	stair_step_up()
+	
 	FSM.actor.move_and_slide()
+	
+	stair_step_down()
 
 
 func _create_speed_timer() -> void:

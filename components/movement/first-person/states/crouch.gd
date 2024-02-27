@@ -23,6 +23,10 @@ func physics_update(delta: float):
 	
 	move(speed)
 	
+	stair_step_up()
+	
 	FSM.actor.move_and_slide()
+	
+	stair_step_down()
 	
 	detect_crawl()

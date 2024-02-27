@@ -29,7 +29,8 @@ class_name FirstPersonController extends CharacterBody3D
 @export var mouse_sensitivity := 3.0
 ## The limit where the camera can rotate relative to x-axis(up-down), by default it's 90 degrees or PI / 2
 @export var camera_rotation_limit := PI / 2
-
+## How smooth the jitter fix is applied to the camera movement
+@export var camera_jitter_smoothing := 18
 
 ## Enable head bobbing for this FPS
 @export_group("Head bobbing")
@@ -70,10 +71,22 @@ func _ready():
 	finite_state_machine.state_changed.connect(on_state_changed)
 
 
-func _physics_process(delta):
+func _physics_process(delta: float):
 	head_bobbing(delta)
 	camera_fov(delta)
 	swing_head()
+	
+	if velocity.y > 0:
+		smooth_camera_jitter(delta)
+
+
+func smooth_camera_jitter(delta: float):
+	eyes.global_position.x = head.global_position.x
+	eyes.global_position.y = lerpf(eyes.global_position.y, head.global_position.y, camera_jitter_smoothing * delta)
+	eyes.global_position.z = head.global_position.z
+
+	# Limit how far camera can lag behind its desired position
+	eyes.global_position.y = clampf(eyes.global_position.y, -head.global_position.y - 1, head.global_position.y + 1)
 
 
 func rotate_camera(relative_x: float, relative_y: float):
@@ -143,10 +156,10 @@ func update_collisions(current_state: State):
 func lock_player(lock : bool) -> void:
 	if lock:
 		locked = true
-		#finite_state_machine.lock_state_machine()
+		finite_state_machine.lock_state_machine()
 	else:
 		locked = false
-		#finite_state_machine.unlock_state_machine()
+		finite_state_machine.unlock_state_machine()
 
 
 func _switch_mouse_mode() -> void:
