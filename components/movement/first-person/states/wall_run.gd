@@ -23,6 +23,7 @@ enum WALL {
 var wall_normal := Vector3.ZERO
 var current_wall := WALL.LEFT
 var direction := Vector3.ZERO
+var current_gravity := wall_gravity
 
 func _enter():
 	if right_wall_detector == null:
@@ -38,6 +39,12 @@ func _enter():
 	
 	wall_normal = get_wall_normal(params)
 	
+	current_gravity = wall_gravity
+	
+	if current_wall == WALL.FRONT:
+		## GO UP WHEN APPLIES A NEGATIVE GRAVITY ON THE PHYSICS PROCESS
+		current_gravity *= -1
+	
 	rotate_camera_based_on_normal(wall_normal)
 
 
@@ -45,6 +52,7 @@ func _exit(_next_state: State):
 	var tween: Tween = create_tween()
 	tween.tween_property(FSM.actor.eyes, "rotation:z", 0, 0.3).set_trans(Tween.TRANS_CUBIC)
 	
+	current_gravity = wall_gravity
 	wall_normal = Vector3.ZERO
 	params = {}
 
@@ -61,10 +69,14 @@ func physics_update(delta: float):
 			return
 	else:
 		if wall_gravity > 0:
-			FSM.actor.velocity.y -= wall_gravity * delta
+			FSM.actor.velocity.y -= current_gravity * delta
 	
 	if not wall_detected():
-		state_finished.emit("Fall", {})
+		if current_wall == WALL.FRONT:
+			state_finished.emit("Jump", {})
+		else:
+			state_finished.emit("Fall", {})
+			
 		return
 		
 	FSM.actor.move_and_slide()

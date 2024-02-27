@@ -56,6 +56,7 @@ class_name FirstPersonController extends CharacterBody3D
 var locked := false
 var head_bob_time_passed := 0.0
 
+
 func _unhandled_input(event: InputEvent):
 	if not locked and event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		rotate_camera(event.relative.x, event.relative.y)
@@ -72,7 +73,7 @@ func _ready():
 	
 	finite_state_machine.state_changed.connect(on_state_changed)
 
-
+	
 func _physics_process(delta: float):
 	head_bobbing(delta)
 	camera_fov(delta)
