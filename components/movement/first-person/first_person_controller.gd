@@ -3,12 +3,13 @@ class_name FirstPersonController extends CharacterBody3D
 @export_group("Mechanics")
 @export var JUMP := true
 @export var WALL_JUMP := false
+@export var WALL_RUN := false
 ## RUN needs to be active also to use the slide
 @export var RUN := true
 #@export var WALL_RUN := false
 @export var SLIDE := false
 @export var CROUCH := true
-@export var CRAWL := true
+@export var CRAWL := false
 
 @onready var finite_state_machine: FiniteStateMachine = $FiniteStateMachine
 @onready var camera: Camera3D = %Camera3D
@@ -47,7 +48,8 @@ class_name FirstPersonController extends CharacterBody3D
 @export var SWING_HEAD_RECOVERY_LERP := 0.15
 
 @export_group("Camera FOV")
-@export var camera_fov_range = [2, 75.0, 85.0, 8.0]
+@export var run_camera_fov_range = [2, 75.0, 85.0, 8.0]
+@export var wall_run_camera_fov_range = [2, 75.0, 95.0, 8.0]
 
 @onready var original_eyes_position := eyes.transform.origin
 
@@ -117,9 +119,11 @@ func head_bobbing(delta: float = get_physics_process_delta_time()) -> void:
 
 func camera_fov(delta: float = get_physics_process_delta_time()) -> void:
 	if finite_state_machine.current_state_name_is("Run"):
-		camera_3d.fov = lerp(camera_3d.fov, camera_fov_range[2], delta * camera_fov_range[3])
+		camera_3d.fov = lerp(camera_3d.fov, run_camera_fov_range[2], delta * run_camera_fov_range[3])
+	elif finite_state_machine.current_state_name_is("WallRun"):
+		camera_3d.fov = lerp(camera_3d.fov, wall_run_camera_fov_range[2], delta * wall_run_camera_fov_range[3])
 	else:
-		camera_3d.fov = lerp(camera_3d.fov, camera_fov_range[1], delta * camera_fov_range[3])
+		camera_3d.fov = lerp(camera_3d.fov, run_camera_fov_range[1], delta * run_camera_fov_range[3])
 	
 
 func swing_head() -> void:

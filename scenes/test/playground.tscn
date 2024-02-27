@@ -85,7 +85,7 @@ transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -
 shadow_enabled = true
 
 [node name="FirstPersonController" parent="." instance=ExtResource("2_1n2dk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.42597, -2.01773)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.42597, 0.467281)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 material_override = SubResource("StandardMaterial3D_lheep")
@@ -93,9 +93,14 @@ use_collision = true
 size = Vector3(20, 0.1, 20)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.43703, 1.52084, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.43703, 2.43213, 0.0496523)
 use_collision = true
-size = Vector3(0.0708618, 2.94055, 6.08203)
+size = Vector3(0.0708618, 4.76312, 14.7994)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.42525, 2.43213, 0.0496523)
+use_collision = true
+size = Vector3(0.0708618, 4.76312, 14.7994)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.97699, 1.51493, -4.76332)

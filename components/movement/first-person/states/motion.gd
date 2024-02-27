@@ -58,6 +58,8 @@ func physics_update(delta: float):
 	if is_falling() and not stair_stepping:
 		state_finished.emit("Fall", {})
 		return
+		
+	
 #
 
 func is_falling() -> bool:
@@ -84,7 +86,7 @@ func stair_step_up():
 	
 	if transformed_input.world_coordinate_space_direction.is_zero_approx():
 		return
-		
+	
 	var body_test_params := PhysicsTestMotionParameters3D.new()
 	var body_test_result := PhysicsTestMotionResult3D.new()
 	var test_transform = FSM.actor.global_transform	 ## Storing current global_transform for testing
@@ -181,7 +183,7 @@ func stair_step_down():
 
 
 func detect_jump():
-	if Input.is_action_just_pressed("jump") and FSM.actor.is_on_floor() and FSM.actor.JUMP:
+	if Input.is_action_just_pressed("jump") and FSM.actor.JUMP and (FSM.actor.is_on_floor() or FSM.current_state is WallRun):
 		state_finished.emit("Jump", {})
 
 

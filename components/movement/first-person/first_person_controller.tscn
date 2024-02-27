@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dxitjfxwkshxj"]
+[gd_scene load_steps=22 format=3 uid="uid://dxitjfxwkshxj"]
 
 [ext_resource type="Script" path="res://components/movement/first-person/first_person_controller.gd" id="1_h8wkm"]
 [ext_resource type="Script" path="res://components/interactions/interactable/interactor.gd" id="2_kg4ik"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://components/movement/first-person/states/slide.gd" id="6_d52pe"]
 [ext_resource type="Script" path="res://components/movement/first-person/states/jump.gd" id="7_4n1os"]
 [ext_resource type="Script" path="res://components/movement/first-person/states/fall.gd" id="12_i7g2d"]
+[ext_resource type="Script" path="res://components/movement/first-person/states/wall_run.gd" id="12_jgw0l"]
 
 [sub_resource type="Animation" id="Animation_p3lw6"]
 length = 0.001
@@ -122,6 +123,8 @@ height = 0.7
 [node name="Actor" type="CharacterBody3D"]
 collision_layer = 4
 script = ExtResource("1_h8wkm")
+WALL_JUMP = true
+WALL_RUN = true
 SLIDE = true
 SWING_HEAD_ENABLED = true
 
@@ -145,6 +148,21 @@ shape = SubResource("CapsuleShape3D_bdeud")
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.57702, 0)
 shape = SubResource("CapsuleShape3D_dupr8")
+
+[node name="RightWallDetector" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.19824, 0)
+target_position = Vector3(1, 0, 0)
+debug_shape_custom_color = Color(0.803922, 0.470588, 0, 1)
+
+[node name="FrontWallDetector" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.19824, 0)
+target_position = Vector3(0, 0, -1)
+debug_shape_custom_color = Color(0.803922, 0.470588, 0, 1)
+
+[node name="LeftWallDetector" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.19824, 0)
+target_position = Vector3(-1, 0, 0)
+debug_shape_custom_color = Color(0.803922, 0.470588, 0, 1)
 
 [node name="Head" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.836, 0)
@@ -189,46 +207,25 @@ script = ExtResource("4_vfkqp")
 
 [node name="Run" type="Node" parent="FiniteStateMachine"]
 script = ExtResource("5_v6cna")
-speed = null
-sprint_time = null
-gravity = null
-gravity_active = null
-fall_velocity_limit = null
-friction = null
 
 [node name="Slide" type="Node" parent="FiniteStateMachine"]
 script = ExtResource("6_d52pe")
-speed = null
-slide_time = null
-friction_momentum = null
-slide_tilt = null
-gravity = null
-gravity_active = null
-fall_velocity_limit = null
-friction = null
 
 [node name="Crouch" type="Node" parent="FiniteStateMachine"]
 script = ExtResource("5_7267j")
-speed = null
-gravity = null
-gravity_active = null
-fall_velocity_limit = null
-friction = null
 
 [node name="Crawl" type="Node" parent="FiniteStateMachine"]
 script = ExtResource("6_1ugdw")
-speed = null
-gravity = null
-gravity_active = null
-fall_velocity_limit = null
-friction = null
 
 [node name="Jump" type="Node" parent="FiniteStateMachine"]
 script = ExtResource("7_4n1os")
 air_control_speed = 7.5
-jump_height = 3.0
-jump_time_to_peak = 0.4
-jump_time_to_fall = 0.55
+jump_height = 2.0
+jump_time_to_peak = 0.45
+jump_time_to_fall = 0.4
+
+[node name="WallRun" type="Node" parent="FiniteStateMachine"]
+script = ExtResource("12_jgw0l")
 
 [node name="Fall" type="Node" parent="FiniteStateMachine"]
 script = ExtResource("12_i7g2d")
