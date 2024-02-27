@@ -81,7 +81,6 @@ func wall_detected() -> bool:
 ## {"right_wall": (0, 0, 0), "left_wall":(-1, 0, 0), "front_wall":(0, 0, 0)}
 func get_wall_normal(params: Dictionary) -> Vector3:
 	for wall in params.keys():
-		
 		var normal = params[wall] as Vector3
 		
 		if not normal.is_zero_approx():
@@ -119,6 +118,8 @@ func rotate_camera_based_on_normal(wall_normal: Vector3):
 			rotation *= -1
 		WALL.FRONT:
 			rotation = 0
-	
+		_:
+			rotation = 0
+			
 	var tween: Tween = create_tween()
 	tween.tween_property(FSM.actor.eyes, "rotation:z", rotation, 0.3).set_trans(Tween.TRANS_CUBIC)
