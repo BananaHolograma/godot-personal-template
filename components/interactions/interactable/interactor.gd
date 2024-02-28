@@ -44,15 +44,16 @@ func interact(interactable: Interactable) -> void:
 		interactable.interacted.emit(self)
 
 
-func cancel_interact(interactable: Interactable) -> void:
+func cancel_interact(interactable: Interactable = current_interactable) -> void:
 	interacting = false
 	
-	if interactable.is_scannable():
-		enabled = true
+	if interactable:
+		if interactable.is_scannable():
+			enabled = true
 
-	if interactable.has_signal("cancel_interact"):
-		interactable.cancel_interact.emit(self)
-		
+		if interactable.has_signal("cancel_interact"):
+			interactable.cancel_interact.emit(self)
+			
 	current_interactable = null
 	
 
@@ -63,7 +64,7 @@ func focus(interactable: Interactable) -> void:
 	focused = true
 
 
-func unfocus(interactable: Interactable) -> void:
-	if interactable.has_signal("unfocused"):
+func unfocus(interactable: Interactable = current_interactable) -> void:
+	if interactable and interactable.has_signal("unfocused"):
 		interactable.unfocused.emit(self)
 	focused = false
