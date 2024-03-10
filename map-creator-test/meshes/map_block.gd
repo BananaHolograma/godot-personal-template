@@ -22,4 +22,7 @@ func update_faces(neighbours: Dictionary):
 
 	for neighbour_direction in neighbours.keys():
 		if neighbours[neighbour_direction]:
-			vector_to_wall[neighbour_direction].hide();
+			var mesh = vector_to_wall[neighbour_direction]
+			
+			if mesh:
+				mesh.hide();

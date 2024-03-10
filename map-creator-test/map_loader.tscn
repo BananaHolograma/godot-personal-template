@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://2k8ykas8nuql"]
 
 [ext_resource type="Script" path="res://map-creator-test/map-loader.gd" id="1_7hh1e"]
-[ext_resource type="PackedScene" uid="uid://cd1va8cw55o28" path="res://map-creator-test/meshes/basic_mesh.tscn" id="2_k7m52"]
+[ext_resource type="PackedScene" uid="uid://cd1va8cw55o28" path="res://map-creator-test/meshes/map_block.tscn" id="2_k7m52"]
 [ext_resource type="Script" path="res://map-creator-test/meshes/map_block.gd" id="3_1fx82"]
 
 [node name="Node3D" type="Node3D"]
@@ -10,361 +10,437 @@
 script = ExtResource("1_7hh1e")
 map_file_path = "res://map-creator-test/map.tscn"
 
-[node name="MapBlock" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50317" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41427" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50318" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41428" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50319" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41429" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50320" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41430" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50321" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41431" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50322" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41432" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50323" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41433" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50324" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41434" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50325" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41435" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50326" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41436" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50327" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 0)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41437" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50328" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 0)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41438" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50329" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 0)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41439" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50330" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 0)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41440" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50331" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 0)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41441" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50332" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 0)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41442" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50333" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 2)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41443" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50334" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 4)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41444" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50335" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 6)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41445" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50336" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 8)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41446" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50337" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 8)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41447" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50338" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 8)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41448" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50339" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 8)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41449" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50340" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 8)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41450" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50341" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 8)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41451" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50342" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 8)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41452" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50343" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 8)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41453" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50344" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 8)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41454" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50345" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 8)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41455" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50346" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 10)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41456" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50347" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 12)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41457" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50348" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 14)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41458" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50349" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 10)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41459" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50350" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 12)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41460" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50351" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 14)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41461" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50352" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 16)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41462" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50353" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 18)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41463" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50354" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 18)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41464" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50355" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 18)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41465" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50356" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 18)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41466" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50357" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 18)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41467" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50358" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 18)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41468" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50359" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 16)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41469" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50360" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 14)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41470" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50361" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 12)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41471" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50362" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 10)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41472" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50363" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41473" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50364" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 2)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41474" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50365" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 2)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41475" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50366" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 2)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41476" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50367" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 2)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41477" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50368" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 2)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41478" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50369" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 2)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41479" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50370" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 2)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41480" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50371" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 2)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41481" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50372" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 4)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41482" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50373" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 4)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41483" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50374" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 6)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41484" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50375" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 2)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41485" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50376" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 4)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41486" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50377" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 4)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41487" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50378" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 4)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41488" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50379" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 4)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41489" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50380" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 4)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41490" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50381" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 4)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41491" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50382" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 4)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41492" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50383" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 4)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41493" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50384" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 6)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41494" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50385" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 6)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41495" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50386" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 6)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41496" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50387" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 6)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41497" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50388" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 6)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41498" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50389" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 6)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41499" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50390" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 6)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41500" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50391" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 6)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41501" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50392" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 6)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41502" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50393" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 8)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41503" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50394" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 10)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41504" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50395" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 12)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41505" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50396" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 14)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41506" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50397" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 16)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41507" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50398" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 16)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41508" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50399" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 16)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41509" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50400" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 16)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41510" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50401" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 14)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41511" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50402" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 12)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41512" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50403" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 10)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41513" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50404" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 10)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41514" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50405" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 12)
 script = ExtResource("3_1fx82")
 
-[node name="@Node3D@41515" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+[node name="@Node3D@50406" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 14)
+script = ExtResource("3_1fx82")
+
+[node name="@Node3D@50407" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 10)
+script = ExtResource("3_1fx82")
+
+[node name="@Node3D@50408" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0, 10)
+script = ExtResource("3_1fx82")
+
+[node name="@Node3D@50409" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 0, 10)
+script = ExtResource("3_1fx82")
+
+[node name="@Node3D@50410" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 10)
+script = ExtResource("3_1fx82")
+
+[node name="@Node3D@50411" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 10)
+script = ExtResource("3_1fx82")
+
+[node name="@Node3D@50412" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 12)
+script = ExtResource("3_1fx82")
+
+[node name="@Node3D@50413" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0, 12)
+script = ExtResource("3_1fx82")
+
+[node name="@Node3D@50414" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 0, 12)
+script = ExtResource("3_1fx82")
+
+[node name="@Node3D@50415" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 12)
+script = ExtResource("3_1fx82")
+
+[node name="@Node3D@50416" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 12)
+script = ExtResource("3_1fx82")
+
+[node name="@Node3D@50417" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 14)
+script = ExtResource("3_1fx82")
+
+[node name="@Node3D@50418" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0, 14)
+script = ExtResource("3_1fx82")
+
+[node name="@Node3D@50419" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 0, 14)
+script = ExtResource("3_1fx82")
+
+[node name="@Node3D@50420" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 14)
+script = ExtResource("3_1fx82")
+
+[node name="@Node3D@50421" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 14)
+script = ExtResource("3_1fx82")
+
+[node name="@Node3D@50422" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0, 10)
+script = ExtResource("3_1fx82")
+
+[node name="@Node3D@50423" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, 12)
+script = ExtResource("3_1fx82")
+
+[node name="@Node3D@50424" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0, 14)
+script = ExtResource("3_1fx82")
+
+[node name="@Node3D@50425" type="Node3D" parent="MapLoader" instance=ExtResource("2_k7m52")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0, 12)
 script = ExtResource("3_1fx82")
