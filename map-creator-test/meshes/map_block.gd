@@ -9,7 +9,13 @@ class_name MapBlock extends Node3D
 @onready var west_wall: MeshInstance3D = $WestWall
 
 
+func _enter_tree():
+	add_to_group("mapblock")
+	name = "MapBlock%s" % get_tree().get_nodes_in_group("mapblock").size()
+
+
 func update_faces(neighbours: Dictionary):
+
 	if neighbours.is_empty():
 		return
 	## I need to access here as the faces can be updated on editor and not ready on the scene tree
@@ -26,3 +32,6 @@ func update_faces(neighbours: Dictionary):
 			
 			if mesh:
 				mesh.hide();
+
+func visible_meshes():
+	return get_children().filter(func(child): return child is MeshInstance3D and child.visible)
