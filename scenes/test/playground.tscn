@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://ptdpvmg8ukea"]
+[gd_scene load_steps=19 format=3 uid="uid://ptdpvmg8ukea"]
 
 [ext_resource type="Texture2D" uid="uid://b2pqej87tbogw" path="res://assets/textures/prototype/Dark/texture_01.png" id="1_ph3gb"]
 [ext_resource type="PackedScene" uid="uid://dxitjfxwkshxj" path="res://components/movement/first-person/first_person_controller.tscn" id="2_1n2dk"]
 [ext_resource type="Script" path="res://components/interactions/interactable/interactable.gd" id="3_kjubf"]
 [ext_resource type="Script" path="res://components/interactions/interactable/interactable-parameters.gd" id="4_0e810"]
+[ext_resource type="Script" path="res://scenes/test/destruction.gd" id="5_prubg"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_s0bmw"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -74,6 +75,9 @@ lock_player = false
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ijf36"]
 radius = 0.247217
+
+[sub_resource type="BoxMesh" id="BoxMesh_ihths"]
+size = Vector3(2, 2, 2)
 
 [node name="Playground" type="Node3D"]
 
@@ -152,3 +156,11 @@ parameters = SubResource("Resource_5rmri")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D2/Interactable"]
 shape = SubResource("SphereShape3D_ijf36")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.22014, 4.54811)
+mesh = SubResource("BoxMesh_ihths")
+
+[node name="Destruction" type="Node" parent="MeshInstance3D" node_paths=PackedStringArray("target")]
+script = ExtResource("5_prubg")
+target = NodePath("..")
