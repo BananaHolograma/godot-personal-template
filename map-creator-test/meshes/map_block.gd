@@ -1,13 +1,6 @@
 @tool
 class_name MapBlock extends Node3D
 
-@onready var floor_mesh: MeshInstance3D = $Floor
-@onready var ceil_mesh: MeshInstance3D = $Ceil
-@onready var north_wall: MeshInstance3D = $NorthWall
-@onready var south_wall: MeshInstance3D = $SouthWall
-@onready var east_wall: MeshInstance3D = $EastWall
-@onready var west_wall: MeshInstance3D = $WestWall
-
 
 func _enter_tree():
 	add_to_group("mapblock")
@@ -18,7 +11,7 @@ func update_faces(neighbours: Dictionary):
 
 	if neighbours.is_empty():
 		return
-	## I need to access here as the faces can be updated on editor and not ready on the scene tree
+	## I need to access here again the faces as can be updated on editor and not being ready on the scene tree yet.
 	var vector_to_wall := {
 		Vector2.UP: $NorthWall,
 		Vector2.DOWN: $SouthWall,
@@ -32,6 +25,19 @@ func update_faces(neighbours: Dictionary):
 			
 			if mesh:
 				mesh.hide();
+
+
+func hide_floor():
+	var floor = $Floor
+	if floor:
+		floor.hide()
+	
+	
+func hide_ceil():
+	var ceil = $Ceil
+	if ceil:
+		ceil.hide()
+
 
 func visible_meshes():
 	return get_children().filter(func(child): return child is MeshInstance3D and child.visible)

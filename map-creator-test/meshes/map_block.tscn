@@ -1,35 +1,22 @@
-[gd_scene load_steps=13 format=3 uid="uid://cd1va8cw55o28"]
+[gd_scene load_steps=9 format=3 uid="uid://cd1va8cw55o28"]
 
 [ext_resource type="Script" path="res://map-creator-test/meshes/map_block.gd" id="1_xyog2"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vx0x7"]
-albedo_color = Color(1, 1, 0.301961, 1)
-
 [sub_resource type="PlaneMesh" id="PlaneMesh_1v533"]
-material = SubResource("StandardMaterial3D_vx0x7")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b7p2p"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_stnwr"]
-material = SubResource("StandardMaterial3D_b7p2p")
 flip_faces = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_1oimp"]
 size = Vector2(2, 3)
 orientation = 0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xiukr"]
-
 [sub_resource type="PlaneMesh" id="PlaneMesh_nceey"]
-material = SubResource("StandardMaterial3D_xiukr")
 flip_faces = true
 size = Vector2(2, 3)
 orientation = 0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qln6p"]
-
 [sub_resource type="PlaneMesh" id="PlaneMesh_7sxy3"]
-material = SubResource("StandardMaterial3D_qln6p")
 size = Vector2(2, 3)
 orientation = 2
 

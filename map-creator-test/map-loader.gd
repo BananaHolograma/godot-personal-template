@@ -3,6 +3,7 @@ class_name MapLoader extends Node3D
 
 
 @export_file("*.tscn") var map_file_path: String = ""
+@export var grid_size := 2
 @export var generate := false:
 	set(value):
 		generate = false
@@ -12,27 +13,25 @@ class_name MapLoader extends Node3D
 	set(value):
 		clear_map = false
 		clear()
-		
-@export var merge_meshes := true
 
+@export_group("Merge meshes")
+@export var merge_meshes := true
 	
+
 func generate_map():
 	var cached_scenes := {}
 	var editor_tree := get_tree().get_edited_scene_root()
-	var result_mesh: ArrayMesh
+	var result_mesh := {
+		"floor": {"mesh": ArrayMesh.new(), "material": null, "surface_tool": SurfaceTool.new() },
+		"ceil": {"mesh": ArrayMesh.new(), "material": null, "surface_tool": SurfaceTool.new() },
+		"walls": {"mesh": ArrayMesh.new(), "material": null, "surface_tool": SurfaceTool.new() }
+	}
 	var result_mesh_material:Material
-
-	var surface_tool = SurfaceTool.new()
 	
 	if _map_file_is_valid(map_file_path):
 		clear()
 		
-		var single_mesh = MeshInstance3D.new()
-		single_mesh.name = "MeshMerger"
-		add_child(single_mesh)
-		if Engine.is_editor_hint():
-			single_mesh.set_owner(editor_tree)
-			
+		
 		var map: PackedScene = load(map_file_path) as PackedScene
 		var map_scene = map.instantiate()
 		
@@ -60,28 +59,48 @@ func generate_map():
 				
 				if mesh_scene is PackedScene:
 					var map_block = mesh_scene.instantiate() as MapBlock
-					map_block.translate(Vector3(cell.x * 2, 0, cell.y * 2))
+					map_block.translate(Vector3(cell.x * grid_size, 0, cell.y * grid_size))
 					map_root.add_child(map_block)
 					map_block.update_faces(get_neighbours(cells, cell))
 					
-					print("visible meshes ", map_block.visible_meshes())
-					for mesh_to_merge in map_block.visible_meshes():
-						surface_tool.append_from(mesh_to_merge.mesh, 0, mesh_to_merge.global_transform)
-						result_mesh = surface_tool.commit()
-						#if mesh_to_merge.get_active_material(0) != null:
-							#result_mesh_material = mesh_to_merge.get_active_material(0)
-						#elif mesh_to_merge.mesh._surface_get_material(0) != null:
-							#result_mesh_material = mesh_to_merge.mesh._surface_get_material(0)
-						#
+					if merge_meshes:
+						for mesh_to_merge in map_block.visible_meshes():
+							var mesh_key = get_key_type_from_mesh(mesh_to_merge)
+							result_mesh[mesh_key]["surface_tool"].append_from(mesh_to_merge.mesh, 0, mesh_to_merge.global_transform)
+							result_mesh[mesh_key]["mesh"] = result_mesh[mesh_key]["surface_tool"].commit()
+				
 
 					if Engine.is_editor_hint():
 						map_block.set_owner(editor_tree)
 						
-
-		single_mesh.mesh = result_mesh
-		##single_mesh.material_override = result_mesh_material
+		if merge_meshes:
+			var floor_mesh = MeshInstance3D.new()
+			var ceil_mesh = MeshInstance3D.new()
+			var walls_mesh = MeshInstance3D.new()
+			
+			floor_mesh.name = "FloorMesh"
+			ceil_mesh.name = "CeilMesh"
+			walls_mesh.name = "WallsMesh"
+			
+			add_child(floor_mesh)
+			add_child(ceil_mesh)
+			add_child(walls_mesh)
+			
+			if Engine.is_editor_hint():
+				floor_mesh.set_owner(editor_tree)
+				ceil_mesh.set_owner(editor_tree)
+				walls_mesh.set_owner(editor_tree)
+				
+			floor_mesh.mesh = result_mesh["floor"]["mesh"]
+			ceil_mesh.mesh = result_mesh["ceil"]["mesh"]
+			walls_mesh.mesh = result_mesh["walls"]["mesh"]
+			map_root.queue_free()
 	else:
 		push_error("The map file path is empty or the file does not exists.")
+
+
+func get_key_type_from_mesh(mesh: MeshInstance3D) -> String:
+	return "walls" if mesh.name.to_lower().contains("wall") else mesh.name.to_lower()
 
 
 func obtain_scene_from_custom_tile_data(data: TileData, cached_scenes: Dictionary) -> PackedScene:
